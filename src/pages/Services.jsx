@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HiCalendar, HiUserGroup, HiLocationMarker, HiCheck, HiStar } from 'react-icons/hi';
+import { FadeInSection } from '../components/animations/StaggerContainer';
+import { RevealText } from '../components/animations/AnimatedText';
+import FloatingParticles from '../components/animations/FloatingParticles';
 
 const Services = () => {
     const [selectedCategory, setSelectedCategory] = useState('all');
@@ -96,30 +99,76 @@ const Services = () => {
         ? trips
         : trips.filter(trip => trip.category === selectedCategory);
 
+    // Letter animation for title
+    const titleLetters = "Adventure Awaits".split('');
+    const letterVariants = {
+        hidden: { opacity: 0, y: 50, rotateX: -90 },
+        visible: (i) => ({
+            opacity: 1,
+            y: 0,
+            rotateX: 0,
+            transition: {
+                delay: i * 0.04,
+                duration: 0.5,
+                type: "spring",
+                damping: 12
+            }
+        })
+    };
+
     return (
         <div className="overflow-hidden">
             {/* Hero Section */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
+                <motion.div
+                    className="absolute inset-0 bg-cover bg-center scale-110"
                     style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
+                    initial={{ scale: 1.2 }}
+                    animate={{ scale: 1.1 }}
+                    transition={{ duration: 1.5 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+
+                {/* Floating particles */}
+                <FloatingParticles count={12} color="rgba(255, 255, 255, 0.5)" />
 
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     className="relative z-10 text-center text-white px-4"
                 >
-                    <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
+                    <motion.span
+                        className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                    >
                         Our Packages
-                    </span>
-                    <h1 className="text-5xl md:text-7xl font-heading font-bold mb-4 text-shadow-lg">
-                        Adventure Awaits
-                    </h1>
-                    <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                        Discover our handcrafted adventure packages designed for unforgettable experiences
-                    </p>
+                    </motion.span>
+
+                    {/* Animated Title */}
+                    <motion.h1
+                        className="text-5xl md:text-7xl font-heading font-bold mb-4 text-shadow-lg flex justify-center flex-wrap"
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        {titleLetters.map((letter, i) => (
+                            <motion.span
+                                key={i}
+                                custom={i}
+                                variants={letterVariants}
+                                className="inline-block"
+                            >
+                                {letter === ' ' ? '\u00A0' : letter}
+                            </motion.span>
+                        ))}
+                    </motion.h1>
+
+                    <RevealText delay={0.6}>
+                        <p className="text-xl text-white/80 max-w-2xl mx-auto">
+                            Discover our handcrafted adventure packages designed for unforgettable experiences
+                        </p>
+                    </RevealText>
                 </motion.div>
 
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent" />
@@ -128,149 +177,194 @@ const Services = () => {
             {/* Filter Section */}
             <section className="bg-gray-50 py-8">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {categories.map((category) => (
-                            <button
+                    <motion.div
+                        className="flex flex-wrap justify-center gap-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        {categories.map((category, index) => (
+                            <motion.button
                                 key={category.id}
                                 onClick={() => setSelectedCategory(category.id)}
                                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${selectedCategory === category.id
-                                        ? 'bg-primary-500 text-white shadow-lg'
-                                        : 'bg-white text-gray-700 hover:bg-gray-100'
+                                    ? 'bg-primary-500 text-white shadow-lg'
+                                    : 'bg-white text-gray-700 hover:bg-gray-100'
                                     }`}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
                             >
                                 {category.name}
-                            </button>
+                            </motion.button>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Trips Section */}
             <section className="section bg-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <div className="space-y-12">
-                        {filteredTrips.map((trip, index) => (
-                            <motion.div
-                                key={trip.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="bg-white rounded-3xl shadow-xl overflow-hidden"
-                            >
-                                <div className="grid lg:grid-cols-2">
-                                    {/* Image */}
-                                    <div className="relative h-72 lg:h-auto">
-                                        <img
-                                            src={trip.image}
-                                            alt={trip.destination}
-                                            className="w-full h-full object-cover"
-                                        />
-                                        <div className="absolute top-4 left-4 flex gap-2">
-                                            <span className="px-3 py-1 bg-accent-500 text-dark-900 rounded-full text-sm font-bold">
-                                                ₹{trip.price.toLocaleString()}
-                                            </span>
-                                            <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-dark-900 rounded-full text-sm font-medium flex items-center gap-1">
-                                                <HiStar className="text-accent-500" />
-                                                {trip.rating}
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="p-8 lg:p-10">
-                                        <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600">
-                                            <div className="flex items-center gap-2">
-                                                <HiCalendar className="text-primary-500" />
-                                                <span>{trip.duration}</span>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <HiUserGroup className="text-primary-500" />
-                                                <span>{trip.groupSize}</span>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <HiLocationMarker className="text-primary-500" />
-                                                <span>South India</span>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={selectedCategory}
+                            className="space-y-12"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            {filteredTrips.map((trip, index) => (
+                                <motion.div
+                                    key={trip.id}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.15, type: "spring", damping: 20 }}
+                                    className="bg-white rounded-3xl shadow-xl overflow-hidden group"
+                                    whileHover={{ y: -5, boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.15)" }}
+                                >
+                                    <div className="grid lg:grid-cols-2">
+                                        {/* Image */}
+                                        <div className="relative h-72 lg:h-auto overflow-hidden">
+                                            <motion.img
+                                                src={trip.image}
+                                                alt={trip.destination}
+                                                className="w-full h-full object-cover"
+                                                whileHover={{ scale: 1.1 }}
+                                                transition={{ duration: 0.6 }}
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+                                            <div className="absolute top-4 left-4 flex gap-2">
+                                                <motion.span
+                                                    className="px-3 py-1 bg-accent-500 text-dark-900 rounded-full text-sm font-bold"
+                                                    whileHover={{ scale: 1.1 }}
+                                                >
+                                                    ₹{trip.price.toLocaleString()}
+                                                </motion.span>
+                                                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-dark-900 rounded-full text-sm font-medium flex items-center gap-1">
+                                                    <HiStar className="text-accent-500" />
+                                                    {trip.rating}
+                                                </span>
                                             </div>
                                         </div>
 
-                                        <h3 className="text-3xl font-heading font-bold text-dark-900 mb-4">
-                                            {trip.destination}
-                                        </h3>
-
-                                        <p className="text-gray-600 mb-6">
-                                            {trip.description}
-                                        </p>
-
-                                        {/* Highlights */}
-                                        <div className="mb-6">
-                                            <h4 className="font-semibold text-dark-900 mb-3">Trip Highlights</h4>
-                                            <div className="grid grid-cols-2 gap-2">
-                                                {trip.highlights.map((highlight) => (
-                                                    <div key={highlight} className="flex items-center gap-2 text-sm text-gray-600">
-                                                        <HiCheck className="text-primary-500 flex-shrink-0" />
-                                                        <span>{highlight}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-
-                                        {/* Includes */}
-                                        <div className="mb-6">
-                                            <h4 className="font-semibold text-dark-900 mb-3">Package Includes</h4>
-                                            <div className="flex flex-wrap gap-2">
-                                                {trip.includes.map((item) => (
-                                                    <span
-                                                        key={item}
-                                                        className="px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-sm font-medium"
+                                        {/* Content */}
+                                        <div className="p-8 lg:p-10">
+                                            <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600">
+                                                {[
+                                                    { icon: HiCalendar, text: trip.duration },
+                                                    { icon: HiUserGroup, text: trip.groupSize },
+                                                    { icon: HiLocationMarker, text: 'South India' }
+                                                ].map((item, i) => (
+                                                    <motion.div
+                                                        key={i}
+                                                        className="flex items-center gap-2"
+                                                        initial={{ opacity: 0, x: -10 }}
+                                                        whileInView={{ opacity: 1, x: 0 }}
+                                                        viewport={{ once: true }}
+                                                        transition={{ delay: i * 0.1 }}
                                                     >
-                                                        {item}
-                                                    </span>
+                                                        <item.icon className="text-primary-500" />
+                                                        <span>{item.text}</span>
+                                                    </motion.div>
                                                 ))}
                                             </div>
-                                        </div>
 
-                                        {/* CTA */}
-                                        <div className="flex flex-col sm:flex-row gap-4">
-                                            <Link
-                                                to="/contact"
-                                                className="btn-primary flex-1 text-center"
-                                            >
-                                                Book Now
-                                            </Link>
-                                            <a
-                                                href="tel:+919876543210"
-                                                className="btn-secondary flex-1 text-center border-primary-500 text-primary-600 hover:bg-primary-500 hover:text-white"
-                                            >
-                                                Call to Enquire
-                                            </a>
+                                            <h3 className="text-3xl font-heading font-bold text-dark-900 mb-4">
+                                                {trip.destination}
+                                            </h3>
+
+                                            <p className="text-gray-600 mb-6">
+                                                {trip.description}
+                                            </p>
+
+                                            {/* Highlights */}
+                                            <div className="mb-6">
+                                                <h4 className="font-semibold text-dark-900 mb-3">Trip Highlights</h4>
+                                                <div className="grid grid-cols-2 gap-2">
+                                                    {trip.highlights.map((highlight, i) => (
+                                                        <motion.div
+                                                            key={highlight}
+                                                            className="flex items-center gap-2 text-sm text-gray-600"
+                                                            initial={{ opacity: 0, x: -10 }}
+                                                            whileInView={{ opacity: 1, x: 0 }}
+                                                            viewport={{ once: true }}
+                                                            transition={{ delay: i * 0.05 }}
+                                                        >
+                                                            <HiCheck className="text-primary-500 flex-shrink-0" />
+                                                            <span>{highlight}</span>
+                                                        </motion.div>
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                            {/* Includes */}
+                                            <div className="mb-6">
+                                                <h4 className="font-semibold text-dark-900 mb-3">Package Includes</h4>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {trip.includes.map((item, i) => (
+                                                        <motion.span
+                                                            key={item}
+                                                            className="px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-sm font-medium"
+                                                            initial={{ opacity: 0, scale: 0.8 }}
+                                                            whileInView={{ opacity: 1, scale: 1 }}
+                                                            viewport={{ once: true }}
+                                                            transition={{ delay: i * 0.05 }}
+                                                            whileHover={{ scale: 1.05 }}
+                                                        >
+                                                            {item}
+                                                        </motion.span>
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                            {/* CTA */}
+                                            <div className="flex flex-col sm:flex-row gap-4">
+                                                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
+                                                    <Link
+                                                        to="/contact"
+                                                        className="btn-primary w-full text-center block"
+                                                    >
+                                                        Book Now
+                                                    </Link>
+                                                </motion.div>
+                                                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
+                                                    <a
+                                                        href="tel:+919876543210"
+                                                        className="btn-secondary w-full text-center block border-primary-500 text-primary-600 hover:bg-primary-500 hover:text-white"
+                                                    >
+                                                        Call to Enquire
+                                                    </a>
+                                                </motion.div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             </section>
 
             {/* Info Section */}
             <section className="section bg-white">
                 <div className="max-w-4xl mx-auto text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                    <FadeInSection>
                         <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark-900 mb-6">
                             Can't Find What You're Looking For?
                         </h2>
                         <p className="text-xl text-gray-600 mb-8">
                             We also organize custom trips and corporate outings. Contact us to plan your perfect adventure!
                         </p>
-                        <Link to="/contact" className="btn-accent text-lg px-8 py-4">
-                            Get Custom Quote
-                        </Link>
-                    </motion.div>
+                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                            <Link to="/contact" className="btn-accent text-lg px-8 py-4">
+                                Get Custom Quote
+                            </Link>
+                        </motion.div>
+                    </FadeInSection>
                 </div>
             </section>
         </div>

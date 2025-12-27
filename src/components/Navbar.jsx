@@ -30,28 +30,34 @@ const Navbar = () => {
     return (
         <>
             <motion.nav
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                        ? 'bg-white/95 backdrop-blur-md shadow-lg'
-                        : 'bg-transparent'
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, type: "spring", damping: 20 }}
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+                    ? 'bg-white/95 backdrop-blur-md shadow-lg'
+                    : 'bg-transparent'
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
-                        <Link to="/" className="flex items-center gap-3">
-                            <img
+                        <Link to="/" className="flex items-center gap-3 group">
+                            <motion.img
                                 src="/images/logo.jpg"
                                 alt="Flying Eagles"
                                 className="h-14 w-14 rounded-full object-cover shadow-lg"
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}
                             />
                             <div className="hidden sm:block">
-                                <h1 className={`font-heading font-bold text-lg leading-tight ${scrolled ? 'text-primary-600' : 'text-white text-shadow'
-                                    }`}>
+                                <motion.h1
+                                    className={`font-heading font-bold text-lg leading-tight transition-colors duration-300 ${scrolled ? 'text-primary-600' : 'text-white text-shadow'
+                                        }`}
+                                    whileHover={{ scale: 1.05 }}
+                                >
                                     FLYING EAGLES
-                                </h1>
-                                <p className={`text-xs font-medium ${scrolled ? 'text-gray-500' : 'text-white/80'
+                                </motion.h1>
+                                <p className={`text-xs font-medium transition-colors duration-300 ${scrolled ? 'text-gray-500' : 'text-white/80'
                                     }`}>
                                     Explore New Heights
                                 </p>
@@ -60,39 +66,87 @@ const Navbar = () => {
 
                         {/* Desktop Navigation */}
                         <div className="hidden md:flex items-center gap-8">
-                            {navLinks.map((link) => (
-                                <Link
+                            {navLinks.map((link, index) => (
+                                <motion.div
                                     key={link.name}
-                                    to={link.path}
-                                    className={`relative font-medium transition-colors duration-200 ${scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-accent-400'
-                                        } ${location.pathname === link.path ? (scrolled ? 'text-primary-600' : 'text-accent-400') : ''}`}
+                                    initial={{ opacity: 0, y: -20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 + 0.3 }}
                                 >
-                                    {link.name}
-                                    {location.pathname === link.path && (
-                                        <motion.div
-                                            layoutId="activeTab"
-                                            className={`absolute -bottom-1 left-0 right-0 h-0.5 ${scrolled ? 'bg-primary-600' : 'bg-accent-400'
-                                                }`}
-                                        />
-                                    )}
-                                </Link>
+                                    <Link
+                                        to={link.path}
+                                        className={`relative font-medium transition-colors duration-300 py-2 ${scrolled
+                                            ? 'text-gray-700 hover:text-primary-600'
+                                            : 'text-white hover:text-accent-400'
+                                            } ${location.pathname === link.path
+                                                ? (scrolled ? 'text-primary-600' : 'text-accent-400')
+                                                : ''
+                                            }`}
+                                    >
+                                        <motion.span whileHover={{ scale: 1.05 }}>
+                                            {link.name}
+                                        </motion.span>
+                                        {location.pathname === link.path && (
+                                            <motion.div
+                                                layoutId="activeTab"
+                                                className={`absolute -bottom-0 left-0 right-0 h-0.5 ${scrolled ? 'bg-primary-600' : 'bg-accent-400'
+                                                    }`}
+                                                initial={{ scaleX: 0 }}
+                                                animate={{ scaleX: 1 }}
+                                                transition={{ duration: 0.3 }}
+                                            />
+                                        )}
+                                    </Link>
+                                </motion.div>
                             ))}
-                            <Link
-                                to="/contact"
-                                className="btn-primary text-sm"
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.7 }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
-                                Book Now
-                            </Link>
+                                <Link
+                                    to="/contact"
+                                    className="btn-primary text-sm"
+                                >
+                                    Book Now
+                                </Link>
+                            </motion.div>
                         </div>
 
                         {/* Mobile Menu Button */}
-                        <button
+                        <motion.button
                             onClick={() => setIsOpen(!isOpen)}
-                            className={`md:hidden p-2 rounded-lg ${scrolled ? 'text-gray-700' : 'text-white'
+                            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-gray-700' : 'text-white'
                                 }`}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
                         >
-                            {isOpen ? <HiX size={28} /> : <HiMenu size={28} />}
-                        </button>
+                            <AnimatePresence mode="wait">
+                                {isOpen ? (
+                                    <motion.div
+                                        key="close"
+                                        initial={{ rotate: -90, opacity: 0 }}
+                                        animate={{ rotate: 0, opacity: 1 }}
+                                        exit={{ rotate: 90, opacity: 0 }}
+                                        transition={{ duration: 0.2 }}
+                                    >
+                                        <HiX size={28} />
+                                    </motion.div>
+                                ) : (
+                                    <motion.div
+                                        key="menu"
+                                        initial={{ rotate: 90, opacity: 0 }}
+                                        animate={{ rotate: 0, opacity: 1 }}
+                                        exit={{ rotate: -90, opacity: 0 }}
+                                        transition={{ duration: 0.2 }}
+                                    >
+                                        <HiMenu size={28} />
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.button>
                     </div>
                 </div>
             </motion.nav>
@@ -101,31 +155,44 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        transition={{ type: 'tween', duration: 0.3 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
                         className="fixed inset-0 z-40 md:hidden"
                     >
-                        <div
-                            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+                        {/* Backdrop */}
+                        <motion.div
+                            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
                             onClick={() => setIsOpen(false)}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
                         />
-                        <div className="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-2xl">
+
+                        {/* Menu Panel */}
+                        <motion.div
+                            className="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-2xl"
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                        >
                             <div className="p-6 pt-24">
-                                <div className="flex flex-col gap-4">
+                                <div className="flex flex-col gap-3">
                                     {navLinks.map((link, index) => (
                                         <motion.div
                                             key={link.name}
-                                            initial={{ opacity: 0, x: 20 }}
+                                            initial={{ opacity: 0, x: 30 }}
                                             animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: 30 }}
                                             transition={{ delay: index * 0.1 }}
                                         >
                                             <Link
                                                 to={link.path}
-                                                className={`block py-3 px-4 rounded-xl font-medium transition-colors ${location.pathname === link.path
-                                                        ? 'bg-primary-50 text-primary-600'
-                                                        : 'text-gray-700 hover:bg-gray-50'
+                                                className={`block py-3 px-4 rounded-xl font-medium transition-all duration-300 ${location.pathname === link.path
+                                                    ? 'bg-primary-50 text-primary-600'
+                                                    : 'text-gray-700 hover:bg-gray-50 hover:translate-x-2'
                                                     }`}
                                             >
                                                 {link.name}
@@ -133,8 +200,9 @@ const Navbar = () => {
                                         </motion.div>
                                     ))}
                                     <motion.div
-                                        initial={{ opacity: 0, x: 20 }}
+                                        initial={{ opacity: 0, x: 30 }}
                                         animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: 30 }}
                                         transition={{ delay: 0.4 }}
                                         className="mt-4"
                                     >
@@ -147,7 +215,7 @@ const Navbar = () => {
                                     </motion.div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
