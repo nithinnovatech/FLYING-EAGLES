@@ -45,7 +45,7 @@ const Navbar = () => {
                             <motion.img
                                 src="/images/logo.jpg"
                                 alt="Flying Eagles"
-                                className="h-14 w-14 rounded-full object-cover shadow-lg"
+                                className="h-20 w-20 rounded-full object-cover shadow-lg"
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                             />
