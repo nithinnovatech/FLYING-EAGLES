@@ -12,6 +12,82 @@ const Services = () => {
     const trips = [
         {
             id: 1,
+            destination: 'Arunachalam + Pondicherry',
+            price: 6599,
+            image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80',
+            duration: '3 Days / 2 Nights',
+            groupSize: '15-20 People',
+            category: 'spiritual',
+            rating: 4.9,
+            includes: ['Transport', 'Accommodation', 'Meals', 'Guide', 'Entry Fees'],
+            highlights: [
+                'Arunachaleswarar Temple',
+                'Girivalam Path',
+                'Promenade Beach',
+                'Auroville Visit',
+                'French Colony Walk'
+            ],
+            description: 'Experience the spiritual vibes of Arunachalam and the French charm of Pondicherry.'
+        },
+        {
+            id: 2,
+            destination: 'Coorg + Chikmagalur',
+            price: 7699,
+            image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+            duration: '4 Days / 3 Nights',
+            groupSize: '15-20 People',
+            category: 'nature',
+            rating: 4.8,
+            includes: ['Transport', 'Resort Stay', 'Meals', 'Guide', 'Activities'],
+            highlights: [
+                'Abbey Falls',
+                'Coffee Plantation Tour',
+                'Mullayanagiri Peak',
+                'Raja\'s Seat Sunset',
+                'Baba Budangiri Hills'
+            ],
+            description: 'Explore the Scotland of India with lush coffee plantations and misty mountains.'
+        },
+        {
+            id: 3,
+            destination: 'Gokarna + Dandeli',
+            price: 6999,
+            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
+            duration: '3 Days / 2 Nights',
+            groupSize: '15-20 People',
+            category: 'adventure',
+            rating: 4.7,
+            includes: ['Transport', 'Camping', 'Meals', 'Rafting', 'Guide'],
+            highlights: [
+                'Om Beach',
+                'Kudle Beach Trek',
+                'White Water Rafting',
+                'Jungle Safari',
+                'Mahabaleshwar Temple'
+            ],
+            description: 'Beach vibes meet adventure sports in this perfect coastal getaway.'
+        },
+        {
+            id: 4,
+            destination: 'Vizag',
+            price: 6599,
+            image: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=800&q=80',
+            duration: '3 Days / 2 Nights',
+            groupSize: '15-20 People',
+            category: 'nature',
+            rating: 4.8,
+            includes: ['Transport', 'Hotel Stay', 'Meals', 'Guide', 'Entry Fees'],
+            highlights: [
+                'Rushikonda Beach',
+                'Kailasagiri Hill',
+                'Araku Valley',
+                'Borra Caves',
+                'Submarine Museum'
+            ],
+            description: 'Discover the jewel of the East Coast with stunning beaches and hills.'
+        },
+        {
+            id: 5,
             destination: 'Isha Foundation + Ooty',
             price: 8999,
             image: '/images/isha-adiyogi.png',
@@ -27,10 +103,10 @@ const Services = () => {
                 'Doddabetta Peak',
                 'Tea Factory Tour'
             ],
-            description: 'Experience the spiritual energy of Isha Foundation and the breathtaking beauty of Ooty’s hills and gardens.'
+            description: 'Visit the majestic Adiyogi statue and the scenic hills of Ooty.'
         },
         {
-            id: 2,
+            id: 6,
             destination: 'Gandikota',
             price: 4699,
             image: '/images/gandikota-canyon.png',
@@ -46,10 +122,10 @@ const Services = () => {
                 'Gandikota Fort Exploration',
                 'Spectacular Sunrise'
             ],
-            description: 'Discover India’s own Grand Canyon. A perfect blend of history, architecture, and raw natural beauty at Gandikota.'
+            description: 'Explore the Grand Canyon of India, the ancient fort, and Penna river.'
         },
         {
-            id: 3,
+            id: 7,
             destination: 'Vizag Colony',
             price: 2999,
             image: '/images/vizag-backwaters.png',
@@ -65,10 +141,10 @@ const Services = () => {
                 'Village Tour',
                 'Local Cuisine Experience'
             ],
-            description: 'Relax in the serene backwaters of Vizag Colony. A perfect weekend getaway for nature lovers and peace seekers.'
+            description: 'Enjoy the tranquil backwaters, boating, and scenic views of Vizag colony.'
         },
         {
-            id: 4,
+            id: 8,
             destination: 'Warangal',
             price: 3999,
             image: '/images/warangal-temple.png',
@@ -84,7 +160,7 @@ const Services = () => {
                 'Laknavaram Lake',
                 'Ramappa Temple (UNESCO)'
             ],
-            description: 'Step back in time to the Kakatiya era. Explore ancient temples, magnificent forts, and beautiful lakes in Warangal.'
+            description: 'Discover the cultural heritage of the Thousand Pillar Temple and Warangal Fort.'
         },
     ];
 

@@ -11,6 +11,34 @@ import { FloatingShapes } from '../components/animations/FloatingParticles';
 const Home = () => {
     const trips = [
         {
+            destination: 'Arunachalam + Pondicherry',
+            price: 6599,
+            image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80',
+            duration: '3 Days / 2 Nights',
+            description: 'Experience the spiritual vibes of Arunachalam and the French charm of Pondicherry.'
+        },
+        {
+            destination: 'Coorg + Chikmagalur',
+            price: 7699,
+            image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+            duration: '4 Days / 3 Nights',
+            description: 'Explore the Scotland of India with lush coffee plantations and misty mountains.'
+        },
+        {
+            destination: 'Gokarna + Dandeli',
+            price: 6999,
+            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
+            duration: '3 Days / 2 Nights',
+            description: 'Beach vibes meet adventure sports in this perfect coastal getaway.'
+        },
+        {
+            destination: 'Vizag',
+            price: 6599,
+            image: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=800&q=80',
+            duration: '3 Days / 2 Nights',
+            description: 'Discover the jewel of the East Coast with stunning beaches and hills.'
+        },
+        {
             destination: 'Isha Foundation + Ooty',
             price: 8999,
             image: '/images/isha-adiyogi.png',
