@@ -66,6 +66,13 @@ const Home = () => {
             duration: '2 Days / 1 Night',
             description: 'Discover the cultural heritage of the Thousand Pillar Temple and Warangal Fort.'
         },
+        {
+            destination: 'Kerala',
+            price: 1399,
+            image: '/images/kerala-backwaters.png',
+            duration: '1 Day',
+            description: 'Experience the serene backwaters, lush greenery, and traditional houseboats of God\'s Own Country.'
+        },
     ];
 
     const features = [

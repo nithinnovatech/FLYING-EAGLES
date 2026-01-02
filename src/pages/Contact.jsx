@@ -22,6 +22,7 @@ const Contact = () => {
         'Gandikota',
         'Vizag Colony',
         'Warangal',
+        'Kerala',
         'Custom Trip'
     ];
 
@@ -29,14 +30,14 @@ const Contact = () => {
         {
             icon: HiPhone,
             title: 'Call Us',
-            value: '+91 98765 43210',
-            href: 'tel:+919876543210'
+            value: '+91 94403 38194',
+            href: 'tel:+919440338194'
         },
         {
             icon: FaWhatsapp,
             title: 'WhatsApp',
-            value: '+91 98765 43210',
-            href: 'https://wa.me/919876543210'
+            value: '+91 94403 38194',
+            href: 'https://wa.me/919440338194'
         },
         {
             icon: HiMail,

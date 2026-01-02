@@ -62,7 +62,7 @@ const Hero = ({
         })
     };
 
-    const flyingLetters = "FLYING".split('');
+    const flyingLetters = "FLYING  EAGLES".split('');
     const eaglesLetters = "EAGLES".split('');
 
     // Ken Burns animation variants for background images
@@ -201,8 +201,8 @@ const Hero = ({
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
-                                ? 'bg-white w-6'
-                                : 'bg-white/40 hover:bg-white/60'
+                            ? 'bg-white w-6'
+                            : 'bg-white/40 hover:bg-white/60'
                             }`}
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
@@ -246,7 +246,7 @@ const Hero = ({
                                 className="inline-block"
                                 style={{ transformStyle: 'preserve-3d' }}
                             >
-                                {letter}
+                                {letter === ' ' ? '\u00A0' : letter}
                             </motion.span>
                         ))}
                     </motion.h1>

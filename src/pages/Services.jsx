@@ -162,6 +162,25 @@ const Services = () => {
             ],
             description: 'Discover the cultural heritage of the Thousand Pillar Temple and Warangal Fort.'
         },
+        {
+            id: 9,
+            destination: 'Kerala',
+            price: 1399,
+            image: '/images/kerala-backwaters.png',
+            duration: '1 Day',
+            groupSize: '15-20 People',
+            category: 'nature',
+            rating: 4.9,
+            includes: ['Transport', 'Meals', 'Boating', 'Guide'],
+            highlights: [
+                'Backwater Houseboat',
+                'Coconut Groves',
+                'Traditional Cuisine',
+                'Scenic Landscapes',
+                'Village Life Experience'
+            ],
+            description: 'Experience the serene backwaters, lush greenery, and traditional houseboats of God\'s Own Country.'
+        },
     ];
 
     const categories = [
@@ -401,7 +420,7 @@ const Services = () => {
                                             <div className="flex flex-col sm:flex-row gap-4">
                                                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
                                                     <a
-                                                        href={`https://wa.me/919876543210?text=Hello Flying Eagles! I am interested in booking the ${trip.destination} trip. Please provide more details.`}
+                                                        href={`https://wa.me/919440338194?text=Hello Flying Eagles! I am interested in booking the ${trip.destination} trip. Please provide more details.`}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="btn-primary w-full text-center block"
@@ -411,7 +430,7 @@ const Services = () => {
                                                 </motion.div>
                                                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
                                                     <a
-                                                        href="tel:+919876543210"
+                                                        href="tel:+919440338194"
                                                         className="btn-secondary w-full text-center block border-primary-500 text-primary-600 hover:bg-primary-500 hover:text-white"
                                                     >
                                                         Call to Enquire
@@ -439,7 +458,7 @@ const Services = () => {
                         </p>
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                             <a
-                                href="https://wa.me/919876543210?text=Hello Flying Eagles! I would like to get a custom quote for a trip."
+                                href="https://wa.me/919440338194?text=Hello Flying Eagles! I would like to get a custom quote for a trip."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn-accent text-lg px-8 py-4 inline-block"
