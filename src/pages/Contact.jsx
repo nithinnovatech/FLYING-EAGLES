@@ -18,10 +18,10 @@ const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const trips = [
-        'Arunachalam + Pondicherry',
-        'Coorg + Chikmagalur',
-        'Gokarna + Dandeli',
-        'Vizag',
+        'Isha Foundation + Ooty',
+        'Gandikota',
+        'Vizag Colony',
+        'Warangal',
         'Custom Trip'
     ];
 

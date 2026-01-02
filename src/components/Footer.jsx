@@ -14,15 +14,15 @@ const Footer = () => {
     ];
 
     const destinations = [
-        'Arunachalam + Pondicherry',
-        'Coorg + Chikmagalur',
-        'Gokarna + Dandeli',
-        'Vizag',
+        'Isha Foundation + Ooty',
+        'Gandikota',
+        'Vizag Colony',
+        'Warangal',
     ];
 
     const socialLinks = [
         { icon: FaFacebookF, href: '#', label: 'Facebook', color: 'hover:bg-blue-600' },
-        { icon: FaInstagram, href: '#', label: 'Instagram', color: 'hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500' },
+        { icon: FaInstagram, href: 'https://www.instagram.com/flyingeaglesclub._?igsh=bnNubTNpeDJ5aDI0', label: 'Instagram', color: 'hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500' },
         { icon: FaTwitter, href: '#', label: 'Twitter', color: 'hover:bg-sky-500' },
         { icon: FaYoutube, href: '#', label: 'YouTube', color: 'hover:bg-red-600' },
     ];

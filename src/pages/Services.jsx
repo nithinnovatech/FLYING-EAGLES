@@ -12,79 +12,79 @@ const Services = () => {
     const trips = [
         {
             id: 1,
-            destination: 'Arunachalam + Pondicherry',
-            price: 6599,
-            image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80',
+            destination: 'Isha Foundation + Ooty',
+            price: 8999,
+            image: '/images/isha-adiyogi.png',
             duration: '3 Days / 2 Nights',
             groupSize: '15-20 People',
             category: 'spiritual',
             rating: 4.9,
             includes: ['Transport', 'Accommodation', 'Meals', 'Guide', 'Entry Fees'],
             highlights: [
-                'Thiruvannamalai Temple Visit',
-                'Girivalam Pradakshina',
-                'French Colony Walk',
-                'Beach Activities',
-                'Auroville Visit'
+                'Adiyogi Statue Visit',
+                'Isha Yoga Center',
+                'Ooty Botanical Garden',
+                'Doddabetta Peak',
+                'Tea Factory Tour'
             ],
-            description: 'Experience the spiritual energy of Arunachalam with its sacred Girivalam path, followed by the charming French heritage of Pondicherry.'
+            description: 'Experience the spiritual energy of Isha Foundation and the breathtaking beauty of Ooty’s hills and gardens.'
         },
         {
             id: 2,
-            destination: 'Coorg + Chikmagalur',
-            price: 7699,
-            image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
-            duration: '4 Days / 3 Nights',
+            destination: 'Gandikota',
+            price: 4699,
+            image: '/images/gandikota-canyon.png',
+            duration: '2 Days / 1 Night',
             groupSize: '15-20 People',
-            category: 'nature',
+            category: 'adventure',
             rating: 4.8,
-            includes: ['Transport', 'Accommodation', 'Meals', 'Guide', 'Activities'],
+            includes: ['Transport', 'Campsite', 'Meals', 'Guide', 'Activities'],
             highlights: [
-                'Abbey Falls Trek',
-                'Coffee Plantation Tour',
-                'Mullayanagiri Peak',
-                'Raja Seat Sunset',
-                'Dubare Elephant Camp'
+                'Grand Canyon View',
+                'Madhavaraya Temple',
+                'Penna River Boating',
+                'Gandikota Fort Exploration',
+                'Spectacular Sunrise'
             ],
-            description: 'Explore the Scotland of India with its lush coffee plantations, misty mountains, and cascading waterfalls in this magical journey.'
+            description: 'Discover India’s own Grand Canyon. A perfect blend of history, architecture, and raw natural beauty at Gandikota.'
         },
         {
             id: 3,
-            destination: 'Gokarna + Dandeli',
-            price: 6999,
-            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
-            duration: '3 Days / 2 Nights',
-            groupSize: '15-20 People',
-            category: 'adventure',
-            rating: 4.9,
-            includes: ['Transport', 'Accommodation', 'Meals', 'Adventure Activities', 'Guide'],
-            highlights: [
-                'Beach Trek: Paradise to Om Beach',
-                'White Water Rafting',
-                'Kayaking',
-                'Sunset at Kudle Beach',
-                'Jungle Safari'
-            ],
-            description: 'The perfect blend of beach vibes and adrenaline-pumping adventure sports. Trek through pristine beaches and conquer the rapids!'
-        },
-        {
-            id: 4,
-            destination: 'Vizag',
-            price: 6599,
-            image: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=800&q=80',
-            duration: '3 Days / 2 Nights',
+            destination: 'Vizag Colony',
+            price: 2999,
+            image: '/images/vizag-backwaters.png',
+            duration: '2 Days / 1 Night',
             groupSize: '15-20 People',
             category: 'nature',
             rating: 4.7,
-            includes: ['Transport', 'Accommodation', 'Meals', 'Guide', 'Entry Fees'],
+            includes: ['Transport', 'Resort Stay', 'Meals', 'Boating', 'Guide'],
             highlights: [
-                'Araku Valley',
-                'Borra Caves',
-                'Rishikonda Beach',
-                'Submarine Museum',
-                'Kailasagiri Hill'
+                'Backwater Boating',
+                'Scenic Landscape Views',
+                'Island Visit',
+                'Village Tour',
+                'Local Cuisine Experience'
             ],
-            description: 'Discover the jewel of the East Coast with its stunning beaches, tribal villages, and the magnificent Borra Caves.'
+            description: 'Relax in the serene backwaters of Vizag Colony. A perfect weekend getaway for nature lovers and peace seekers.'
+        },
+        {
+            id: 4,
+            destination: 'Warangal',
+            price: 3999,
+            image: '/images/warangal-temple.png',
+            duration: '2 Days / 1 Night',
+            groupSize: '15-20 People',
+            category: 'spiritual',
+            rating: 4.8,
+            includes: ['Transport', 'Hotel Stay', 'Meals', 'Guide', 'Entry Fees'],
+            highlights: [
+                'Thousand Pillar Temple',
+                'Warangal Fort',
+                'Bhadrakali Temple',
+                'Laknavaram Lake',
+                'Ramappa Temple (UNESCO)'
+            ],
+            description: 'Step back in time to the Kakatiya era. Explore ancient temples, magnificent forts, and beautiful lakes in Warangal.'
         },
     ];
 
@@ -324,12 +324,14 @@ const Services = () => {
                                             {/* CTA */}
                                             <div className="flex flex-col sm:flex-row gap-4">
                                                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
-                                                    <Link
-                                                        to="/contact"
+                                                    <a
+                                                        href={`https://wa.me/919876543210?text=Hello Flying Eagles! I am interested in booking the ${trip.destination} trip. Please provide more details.`}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
                                                         className="btn-primary w-full text-center block"
                                                     >
                                                         Book Now
-                                                    </Link>
+                                                    </a>
                                                 </motion.div>
                                                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
                                                     <a
@@ -360,9 +362,14 @@ const Services = () => {
                             We also organize custom trips and corporate outings. Contact us to plan your perfect adventure!
                         </p>
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                            <Link to="/contact" className="btn-accent text-lg px-8 py-4">
+                            <a
+                                href="https://wa.me/919876543210?text=Hello Flying Eagles! I would like to get a custom quote for a trip."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-accent text-lg px-8 py-4 inline-block"
+                            >
                                 Get Custom Quote
-                            </Link>
+                            </a>
                         </motion.div>
                     </FadeInSection>
                 </div>

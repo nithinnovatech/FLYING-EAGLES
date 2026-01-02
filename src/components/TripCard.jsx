@@ -142,15 +142,17 @@ const TripCard = ({
 
                 {/* CTA Button */}
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Link
-                        to="/contact"
+                    <a
+                        href={`https://wa.me/919876543210?text=Hello Flying Eagles! I am interested in booking the ${destination} trip. Please provide more details.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block w-full text-center py-3.5 px-6 rounded-xl font-semibold
                                  bg-gradient-to-r from-primary-500 to-primary-600 text-white 
                                  hover:from-primary-600 hover:to-primary-700
                                  transform transition-all duration-300 shadow-md hover:shadow-lg"
                     >
                         Book Now
-                    </Link>
+                    </a>
                 </motion.div>
             </div>
 

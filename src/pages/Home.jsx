@@ -11,32 +11,32 @@ import { FloatingShapes } from '../components/animations/FloatingParticles';
 const Home = () => {
     const trips = [
         {
-            destination: 'Arunachalam + Pondicherry',
-            price: 6599,
-            image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80',
+            destination: 'Isha Foundation + Ooty',
+            price: 8999,
+            image: '/images/isha-adiyogi.png',
             duration: '3 Days / 2 Nights',
-            description: 'Experience the spiritual vibes of Arunachalam and the French charm of Pondicherry.'
+            description: 'Visit the majestic Adiyogi statue and the scenic hills of Ooty.'
         },
         {
-            destination: 'Coorg + Chikmagalur',
-            price: 7699,
-            image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
-            duration: '4 Days / 3 Nights',
-            description: 'Explore the Scotland of India with lush coffee plantations and misty mountains.'
+            destination: 'Gandikota',
+            price: 4699,
+            image: '/images/gandikota-canyon.png',
+            duration: '2 Days / 1 Night',
+            description: 'Explore the Grand Canyon of India, the ancient fort, and Penna river.'
         },
         {
-            destination: 'Gokarna + Dandeli',
-            price: 6999,
-            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
-            duration: '3 Days / 2 Nights',
-            description: 'Beach vibes meet adventure sports in this perfect coastal getaway.'
+            destination: 'Vizag Colony',
+            price: 2999,
+            image: '/images/vizag-backwaters.png',
+            duration: '2 Days / 1 Night',
+            description: 'Enjoy the tranquil backwaters, boating, and scenic views of Vizag colony.'
         },
         {
-            destination: 'Vizag',
-            price: 6599,
-            image: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=800&q=80',
-            duration: '3 Days / 2 Nights',
-            description: 'Discover the jewel of the East Coast with stunning beaches and hills.'
+            destination: 'Warangal',
+            price: 3999,
+            image: '/images/warangal-temple.png',
+            duration: '2 Days / 1 Night',
+            description: 'Discover the cultural heritage of the Thousand Pillar Temple and Warangal Fort.'
         },
     ];
 
