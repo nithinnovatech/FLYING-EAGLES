@@ -180,9 +180,14 @@ const Footer = () => {
                                 whileHover={{ x: 5 }}
                             >
                                 <FaPhoneAlt className="text-accent-400 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                                <a href="tel:+919440338194" className="text-gray-400 hover:text-accent-400 transition-colors">
-                                    +91 94403 38194
-                                </a>
+                                <div className="flex flex-col">
+                                    <a href="tel:+919966813435" className="text-gray-400 hover:text-accent-400 transition-colors">
+                                        9966 81 3435 - SANJAY SAHO
+                                    </a>
+                                    <a href="tel:+919966915455" className="text-gray-400 hover:text-accent-400 transition-colors">
+                                        9966 91 5455 - ANIL REDDY
+                                    </a>
+                                </div>
                             </motion.li>
                             <motion.li
                                 className="flex items-center gap-3 group"

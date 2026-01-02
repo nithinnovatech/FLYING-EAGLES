@@ -29,15 +29,21 @@ const Contact = () => {
     const contactInfo = [
         {
             icon: HiPhone,
-            title: 'Call Us',
-            value: '+91 94403 38194',
-            href: 'tel:+919440338194'
+            title: 'SANJAY SAHO',
+            value: '9966 81 3435',
+            href: 'tel:+919966813435'
+        },
+        {
+            icon: HiPhone,
+            title: 'ANIL REDDY',
+            value: '9966 91 5455',
+            href: 'tel:+919966915455'
         },
         {
             icon: FaWhatsapp,
             title: 'WhatsApp',
-            value: '+91 94403 38194',
-            href: 'https://wa.me/919440338194'
+            value: '9966 81 3435',
+            href: 'https://wa.me/919966813435'
         },
         {
             icon: HiMail,

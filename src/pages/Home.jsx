@@ -68,7 +68,7 @@ const Home = () => {
         },
         {
             destination: 'Kerala',
-            price: 1399,
+            price: 13999,
             image: '/images/kerala-backwaters.png',
             duration: '1 Day',
             description: 'Experience the serene backwaters, lush greenery, and traditional houseboats of God\'s Own Country.'
