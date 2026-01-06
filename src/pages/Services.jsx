@@ -167,11 +167,11 @@ const Services = () => {
             destination: 'Kerala',
             price: 13999,
             image: '/images/kerala-backwaters.png',
-            duration: '1 Day',
+            duration: '5 Days / 4 Nights',
             groupSize: '15-20 People',
             category: 'nature',
             rating: 4.9,
-            includes: ['Transport', 'Meals', 'Boating', 'Guide'],
+            includes: ['Transport', 'Accommodation', 'Meals', 'Boating', 'Guide'],
             highlights: [
                 'Backwater Houseboat',
                 'Coconut Groves',
