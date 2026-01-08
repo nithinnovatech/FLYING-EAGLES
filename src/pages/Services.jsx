@@ -420,7 +420,7 @@ const Services = () => {
                                             <div className="flex flex-col sm:flex-row gap-4">
                                                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
                                                     <a
-                                                        href={`https://wa.me/919440338194?text=Hello Flying Eagles! I am interested in booking the ${trip.destination} trip. Please provide more details.`}
+                                                        href={`https://wa.me/919966915455?text=Hello Flying Eagles! I am interested in booking the ${trip.destination} trip. Please provide more details.`}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="btn-primary w-full text-center block"
@@ -458,7 +458,7 @@ const Services = () => {
                         </p>
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                             <a
-                                href="https://wa.me/919440338194?text=Hello Flying Eagles! I would like to get a custom quote for a trip."
+                                href="https://wa.me/919966915455?text=Hello Flying Eagles! I would like to get a custom quote for a trip."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn-accent text-lg px-8 py-4 inline-block"

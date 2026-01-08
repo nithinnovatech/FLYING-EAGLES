@@ -42,8 +42,8 @@ const Contact = () => {
         {
             icon: FaWhatsapp,
             title: 'WhatsApp',
-            value: '9440 33 8194',
-            href: 'https://wa.me/919440338194'
+            value: '9966 91 5455',
+            href: 'https://wa.me/919966915455'
         },
         {
             icon: HiMail,
