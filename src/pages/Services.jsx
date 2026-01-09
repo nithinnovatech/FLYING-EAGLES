@@ -34,7 +34,7 @@ const Services = () => {
             destination: 'Coorg + Chikmagalur',
             price: 7699,
             image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
-            duration: '4 Days / 3 Nights',
+            duration: '3 Days / 2 Nights',
             groupSize: '15-20 People',
             category: 'nature',
             rating: 4.8,
